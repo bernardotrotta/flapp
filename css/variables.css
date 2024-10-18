@@ -1,0 +1,52 @@
+:root {
+    --menu-bg: #EFEFEF;
+    --border-radius-sm: 8px;
+    --border-radius-md: 16px;
+    --border-radius-lg: 24px;
+    --shadow: 0px 16px 24px rgb(89 89 89 / 0.1);
+
+    /* Primary Color */
+    --color-primary: #3284E5; /* Un blu moderato */
+
+    /* Whites and Blacks */
+    --color-black: #000000;
+    --color-gray-dark: #2c3e50;
+    --color-gray: #95a5a6;
+    --color-gray-light: #ecf0f1;
+    --color-white: #ffffff;
+
+    /* Typography */
+    --font-family-sans: 'Helvetica Neue', Arial, sans-serif;
+    --font-family-serif: 'Georgia', Times, serif;
+
+    /* Font sizes */
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 20px;
+    --font-size-xl: 24px;
+    --font-size-xxl: 32px;
+
+    /* Font weights */
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+
+    /* Line heights */
+    --line-height-normal: 1.5;
+    --line-height-tight: 1.25;
+
+    /* Spacing System */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 40px;
+
+    /* Border Radius */
+    --border-radius-none: 0px;
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    --border-radius-full: 50%;
+}

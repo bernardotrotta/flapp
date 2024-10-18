@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --menu-bg: #EFEFEF;
+    --border-radius-sm: 8px;
+    --border-radius-md: 16px;
+    --border-radius-lg: 24px;
+    --primary: #3284E5;
+    --shadow: 0px 16px 24px rgb(89 89 89 / 0.1);
+}
+
+h1 {
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--primary);
+    font-family: "Inter", sans-serif;
+}
+
+.cloud {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: -10;
+}
+
+.menu {
+    grid-area: menu;
+    background-color: var(--menu-bg) !important;
+    flex-direction: column;
+}
+
+.container {
+  display: flex;  
+  background-color: #fff;
+  border-radius: var(--border-radius-lg);
+  margin: 0 auto ;
+  overflow: hidden;
+  max-width: 1280px;
+  max-height: 720px;
+  margin-top: 200px;
+  box-shadow: var(--shadow);
+}
+
+.container > div {
+  padding: 48px;
+  font-size: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.grid-container {
+    flex-grow: 1;
+    display: grid !important;
+    grid-template-areas:
+        'a a a'
+        'b c c'
+        'd e f';
+    grid-gap: 10px;
+
+}
+
+.grid-container > div {
+    font-size: 30px;
+    display: flex;
+    gap: 20px;
+    padding: 32px;
+    
+  }
+
+.item1 { 
+    grid-area: a;
+    box-shadow: var(--shadow);
+    background-color: var(--menu-bg);
+    border-radius: var(--border-radius-md);
+    background-image: url("../img/airplane-2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    }
+
+.item2 { grid-area: b; }
+.item3 { grid-area: c; }
+.item4 { grid-area: d; }
+.item5 { grid-area: e; }
+.item6 { grid-area: f; }
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+nav ul :hover{
+    background-color: rgb(210, 210, 210);
+    color: rgb(29, 29, 29);
+    border-radius: var(--border-radius-sm);
+}
+
+nav ul :active{
+    background-color: rgb(85, 85, 85);
+}
+
+nav li {
+    text-align: start;
+    list-style: none;
+    background-color: rgb(255, 255, 255);
+    font-size: 16px;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    gap: 8px;
+    
+}
+
+nav li a{
+    color: rgb(18, 18, 18);
+    border-radius: 8px;
+}
+
+nav img {
+    margin: 0;
+
+}

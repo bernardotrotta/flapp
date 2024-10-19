@@ -2,6 +2,8 @@
 
 @import url('./variables.css');
 
+@import url('./widgets.css');
+
 h1 {
     font-weight: 700;
 }
@@ -9,6 +11,23 @@ h1 {
 h2 {
     font-size: 40px;
 }
+
+h3 {
+    font-size: 40px;
+}
+
+h4 {
+    font-size: 40px;
+}
+
+h5 {
+    font-size: 40px;
+}
+
+h6 {
+    font-size: 40px;
+}
+
 
 a {
     text-decoration: none;
@@ -20,9 +39,14 @@ a {
     padding: 0;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     background-color: var(--color-primary);
     font-family: "Inter", sans-serif;
+    height: 100%;
 }
 
 .cloud {
@@ -32,52 +56,95 @@ body {
     z-index: -10;
 }
 
-.menu {
-    grid-area: menu;
-    background-color: var(--menu-bg) !important;
-    flex-direction: column;
-    gap: var(--spacing-xxl) !important;
+.wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
   display: flex;  
   background-color: #fff;
   border-radius: var(--border-radius-lg);
-  margin: 0 auto ;
   overflow: hidden;
   max-width: 1280px;
   max-height: 720px;
-  margin-top: 200px;
   box-shadow: var(--shadow);
 }
 
 .container > div {
   padding: 48px;
-  font-size: 30px;
   display: flex;
-  gap: var(--spacing-md);
+  gap: var(--spacing-xxl);
+  flex-direction: column;
 }
 
-.grid-container {
-    flex-grow: 1;
+.menu {
+    background-color: var(--menu-bg) !important;
+    flex-direction: column;
+    gap: var(--spacing-xxl) !important;
+}
+
+#user-page {
     display: grid !important;
     grid-template-areas:
-        'a a a'
-        'b c c'
-        'd e f';
-    grid-gap: 10px;
-
+        'a a'
+        'b c'
+        'b c';
+    grid-gap: 48px;
 }
 
-.grid-container > div {
-    font-size: 30px;
-    display: flex;
-    gap: var(--spacing-md);
-    padding: 32px;
-    
-  }
+#bookings-page {
+    display: grid !important;
+    grid-template-areas:
+        'a a'
+        'c c'
+        'c c';
+    grid-gap: 48px;
+}
 
-.item1 { 
+.widget {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);    
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+#item2 form {
+    display: grid;
+    grid-template-areas:
+        'firstName lastName'
+        'customerId customerId'
+        'submit submit';
+    gap: 24px;
+}
+
+#item3 form {
+    display: grid;
+    grid-template-areas:
+        'bookingId'
+        'submit';
+    gap: 24px;
+}
+
+.widget label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#item1 { 
     grid-area: a;
     box-shadow: var(--shadow);
     background-color: var(--menu-bg);
@@ -89,11 +156,42 @@ body {
     height: 300px;
     }
 
-.item2 { grid-area: b; }
-.item3 { grid-area: c; }
-.item4 { grid-area: d; }
-.item5 { grid-area: e; }
-.item6 { grid-area: f; }
+#item2 { grid-area: b; }
+#item3 { grid-area: c; }
+
+.field1 { grid-area: firstName; }
+.field2 { grid-area: lastName; }
+.field3 { grid-area: customerId; }
+.field4 { grid-area: bookingId; }
+
+
+
+input {
+    width: 100%;
+    background-color: var(--menu-bg);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    grid-area: submit;
+    color: white;
+    background-color: var(--color-primary);
+}
+
+input[type="submit"]:hover {
+    background-color: var(--color-primary-hover);
+}
+
+input[type="submit"]:active {
+    background-color: var(--color-primary-active);
+}
+
+nav {
+    height: 100%;
+}
 
 nav ul {
     display: flex;
@@ -119,17 +217,25 @@ nav li {
     text-decoration: none;
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--border-radius-md);
-    display: flex;
-    gap: 8px;
-    
 }
 
-nav li a{
+ul li a{
+    display: flex;
     color: rgb(18, 18, 18);
     border-radius: 8px;
+    width: 100%;
+    gap: 8px;
 }
 
 nav img {
     margin: 0;
 
+}
+
+.review {
+    font-size: small;
+}
+
+.review a{
+    color: var(--color-primary)
 }

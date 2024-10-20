@@ -1,75 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
-@import url('./variables.css');
+@import url("./variables.css");
 
-@import url('./widgets.css');
+@import url("./widgets.css");
 
 h1 {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 h2 {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 h3 {
-    font-size: 40px;
+  font-size: 24px;
 }
 
 h4 {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 h5 {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 h6 {
-    font-size: 40px;
+  font-size: 40px;
 }
 
-
 a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    background-color: var(--color-primary);
-    font-family: "Inter", sans-serif;
-    height: 100%;
+  background-color: var(--color-primary);
+  font-family: "Inter", sans-serif;
+  height: 100%;
 }
 
 .cloud {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: -10;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: -10;
 }
 
 .wrapper {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
-  display: flex;  
+  display: flex;
   background-color: #fff;
   border-radius: var(--border-radius-lg);
   overflow: hidden;
-  max-width: 1280px;
-  max-height: 720px;
+  width: 1280px;
+  height: 720px;
   box-shadow: var(--shadow);
 }
 
@@ -78,164 +78,245 @@ body {
   display: flex;
   gap: var(--spacing-xxl);
   flex-direction: column;
+  flex: 2;
+  overflow-y: scroll;
 }
 
 .menu {
-    background-color: var(--menu-bg) !important;
-    flex-direction: column;
-    gap: var(--spacing-xxl) !important;
+  background-color: var(--menu-bg) !important;
+  flex-direction: column;
+  gap: var(--spacing-xxl) !important;
+  flex: 1 !important;
+  overflow: hidden;
 }
 
 #user-page {
-    display: grid !important;
-    grid-template-areas:
-        'a a'
-        'b c'
-        'b c';
-    grid-gap: 48px;
+  display: grid !important;
+  grid-template-areas:
+    "a"
+    "b";
+  grid-gap: 48px;
 }
 
 #bookings-page {
-    display: grid !important;
-    grid-template-areas:
-        'a a'
-        'c c'
-        'c c';
-    grid-gap: 48px;
+  display: grid !important;
+  grid-template-areas:
+    "a"
+    "c";
+  grid-gap: 48px;
+}
+
+#home-page {
+  display: grid !important;
+  grid-template-areas:
+    "w1 w1 w1 w1"
+    "w3 w3 w4 w4"
+    "w5 w5 w6 w6";
 }
 
 .widget {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);    
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
 }
 
 form div {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
 }
 
 #item2 form {
-    display: grid;
-    grid-template-areas:
-        'firstName lastName'
-        'customerId customerId'
-        'submit submit';
-    gap: 24px;
+  display: grid;
+  grid-template-areas:
+    "firstName lastName"
+    "customerId customerId"
+    "submit submit";
+  gap: 24px;
 }
 
 #item3 form {
-    display: grid;
-    grid-template-areas:
-        'bookingId'
-        'submit';
-    gap: 24px;
+  display: grid;
+  grid-template-areas:
+    "bookingId"
+    "submit";
+  gap: 24px;
 }
 
 .widget label {
-    font-size: 14px;
-    font-weight: bold;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .row {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
-#item1 { 
-    grid-area: a;
-    box-shadow: var(--shadow);
-    background-color: var(--menu-bg);
-    border-radius: var(--border-radius-lg);
-    background-image: url("../img/airplane-2.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 300px;
-    }
+#item1 {
+  grid-area: a;
+  box-shadow: var(--shadow);
+  background-color: var(--menu-bg);
+  border-radius: var(--border-radius-lg);
+  background-image: url("../img/airplane-2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+}
 
-#item2 { grid-area: b; }
-#item3 { grid-area: c; }
+#item2 {
+  grid-area: b;
+}
+#item3 {
+  grid-area: c;
+}
 
-.field1 { grid-area: firstName; }
-.field2 { grid-area: lastName; }
-.field3 { grid-area: customerId; }
-.field4 { grid-area: bookingId; }
+.field1 {
+  grid-area: firstName;
+}
+.field2 {
+  grid-area: lastName;
+}
+.field3 {
+  grid-area: customerId;
+}
+.field4 {
+  grid-area: bookingId;
+}
+
+.overlay {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0); /* Overlay nero con trasparenza */
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 1;
+  justify-content: end;
+  padding: 20px;
+  z-index: 1;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.overlay:hover {
+  opacity: 0;
+}
 
 
+#widget1 {
+  grid-area: w1;
+  background-color: var(--menu-bg);
+  background-image: url(../img/airplane-1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  height: 200px;
+  color: var(--color-white);
+  z-index: 0;
+}
+
+#widget1 span,
+#widget1 h3 {
+  z-index: 3;
+}
+
+/* #widget2 {
+  grid-area: w2;
+} */
+#widget3 {
+  grid-area: w3;
+}
+#widget4 {
+  grid-area: w4;
+}
+#widget5 {
+  grid-area: w5;
+}
+#widget6 {
+  grid-area: w6;
+}
 
 input {
-    width: 100%;
-    background-color: var(--menu-bg);
-    border: none;
-    border-radius: var(--border-radius-sm);
-    padding: var(--spacing-md) var(--spacing-lg);
-    box-sizing: border-box;
+  width: 100%;
+  background-color: var(--menu-bg);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
 }
 
 input[type="submit"] {
-    grid-area: submit;
-    color: white;
-    background-color: var(--color-primary);
+  grid-area: submit;
+  color: white;
+  background-color: var(--color-primary);
 }
 
 input[type="submit"]:hover {
-    background-color: var(--color-primary-hover);
+  background-color: var(--color-primary-hover);
 }
 
 input[type="submit"]:active {
-    background-color: var(--color-primary-active);
+  background-color: var(--color-primary-active);
 }
 
 nav {
-    height: 100%;
+  height: 100%;
 }
 
 nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-}
-
-nav ul :hover{
-    background-color: rgb(210, 210, 210);
-    color: rgb(29, 29, 29);
-    border-radius: var(--border-radius-md);
-}
-
-nav ul :active{
-    background-color: rgb(85, 85, 85);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
 }
 
 nav li {
-    text-align: start;
-    list-style: none;
-    background-color: rgb(255, 255, 255);
-    font-size: 16px;
-    text-decoration: none;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: var(--border-radius-md);
+  text-align: start;
+  list-style: none;
+  background-color: rgb(255, 255, 255);
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: var(--border-radius-md);
 }
 
-ul li a{
-    display: flex;
-    color: rgb(18, 18, 18);
-    border-radius: 8px;
-    width: 100%;
-    gap: 8px;
+ul li a {
+  display: flex;
+  color: rgb(18, 18, 18);
+  border-radius: 8px;
+  gap: 8px;
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+ul li :hover {
+  background-color: rgb(210, 210, 210);
+  color: rgb(29, 29, 29);
+  border-radius: var(--border-radius-md);
+}
+
+ul li :active {
+  background-color: rgb(85, 85, 85);
 }
 
 nav img {
-    margin: 0;
-
+  margin: 0;
 }
 
 .review {
-    font-size: small;
+  font-size: small;
 }
 
-.review a{
-    color: var(--color-primary)
+.review a {
+  color: var(--color-primary);
+}
+
+ol {
+  list-style-position: inside;
+  line-height: 2em;
 }

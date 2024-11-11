@@ -48,4 +48,67 @@
     --border-radius-md: 8px;
     --border-radius-lg: 16px;
     --border-radius-full: 50%;
+
+    /* Base font size for reference */
+    --font-size-base: 16px;
+  
+    /* Headings in em based on the base font size */
+    --font-size-h1: 2.5em;  /* 40px */
+    --font-size-h2: 2em;    /* 32px */
+    --font-size-h3: 1.75em; /* 28px */
+    --font-size-h4: 1.5em;  /* 24px */
+    --font-size-h5: 1.25em; /* 20px */
+    --font-size-h6: 1em;    /* 16px */
+  
+    /* Line heights for headings */
+    --line-height-h1: 1.2;
+    --line-height-h2: 1.3;
+    --line-height-h3: 1.3;
+    --line-height-h4: 1.4;
+    --line-height-h5: 1.5;
+    --line-height-h6: 1.5;
+  
+    /* Font weights for headings */
+    --font-weight-h1: 700;
+    --font-weight-h2: 600;
+    --font-weight-h3: 600;
+    --font-weight-h4: 500;
+    --font-weight-h5: 500;
+    --font-weight-h6: 500;
 }
+
+h1 {
+    font-size: var(--font-size-h1);
+    line-height: var(--line-height-h1);
+    font-weight: var(--font-weight-h1);
+  }
+  
+  h2 {
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+    font-weight: var(--font-weight-h2);
+  }
+  
+  h3 {
+    font-size: var(--font-size-h3);
+    line-height: var(--line-height-h3);
+    font-weight: var(--font-weight-h3);
+  }
+  
+  h4 {
+    font-size: var(--font-size-h4);
+    line-height: var(--line-height-h4);
+    font-weight: var(--font-weight-h4);
+  }
+  
+  h5 {
+    font-size: var(--font-size-h5);
+    line-height: var(--line-height-h5);
+    font-weight: var(--font-weight-h5);
+  }
+  
+  h6 {
+    font-size: var(--font-size-h6);
+    line-height: var(--line-height-h6);
+    font-weight: var(--font-weight-h6);
+  }

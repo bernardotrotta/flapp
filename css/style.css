@@ -1,32 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-
 @import url("./variables.css");
-
 @import url("./widgets.css");
-
-h1 {
-  font-weight: 700;
-}
-
-h2 {
-  font-size: 40px;
-}
-
-h3 {
-  font-size: 24px;
-}
-
-h4 {
-  font-size: 40px;
-}
-
-h5 {
-  font-size: 40px;
-}
-
-h6 {
-  font-size: 40px;
-}
+@import url("./table.css");
+@import url("./userbadge.css");
+@import url("./form.css");
 
 a {
   text-decoration: none;
@@ -67,10 +44,10 @@ body {
   display: flex;
   background-color: #fff;
   border-radius: var(--border-radius-lg);
-  overflow: hidden;
   width: 1280px;
   height: 720px;
   box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
 .container > div {
@@ -78,8 +55,7 @@ body {
   display: flex;
   gap: var(--spacing-xxl);
   flex-direction: column;
-  flex: 2;
-  overflow-y: scroll;
+  flex: 3;
 }
 
 .menu {
@@ -87,7 +63,6 @@ body {
   flex-direction: column;
   gap: var(--spacing-xxl) !important;
   flex: 1 !important;
-  overflow: hidden;
 }
 
 #user-page {
@@ -117,7 +92,8 @@ body {
 .widget {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--spacing-lg);
+  height: 100%;
 }
 
 form div {
@@ -133,6 +109,8 @@ form div {
     "customerId customerId"
     "submit submit";
   gap: 24px;
+
+ 
 }
 
 #item3 form {
@@ -163,7 +141,6 @@ form div {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 300px;
 }
 
 #item2 {
@@ -186,53 +163,14 @@ form div {
   grid-area: bookingId;
 }
 
-.overlay {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.field); /* Overlay nero con trasparenza */
-  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%);
-  justify-content: end;
-  padding: 20px;
-  z-index: 1;
-  opacity: 1;
-  transition: 0.3s;
-}
-
-.overlay:hover {
-  opacity: 0;
-}
 
 
-#widget1 {
-  grid-area: w1;
-  background-color: var(--menu-bg);
-  background-image: url(../img/airplane-1.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: var(--border-radius-md);
-  overflow: hidden;
-  height: 200px;
-  color: var(--color-white);
-  z-index: 0;
-}
-
-#widget1 span,
-#widget1 h3 {
-  z-index: 3;
-}
 
 /* #widget2 {
   grid-area: w2;
 } */
-#widget3 {
-  grid-area: w3;
-}
-#widget4 {
-  grid-area: w4;
-}
+
+
 #widget5 {
   grid-area: w5;
 }
@@ -315,3 +253,28 @@ ol {
   list-style-position: inside;
   line-height: 2em;
 }
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+
+/* ::-webkit-scrollbar {
+    background-color: transparent;
+    width: 40px;
+}
+* {
+    scrollbar-width: thin;
+    scrollbar-color: blue red
+    ;
+}
+*::-webkit-scrollbar-track {
+    background-color: white;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: blue ;
+    border-radius: 20px;
+    border: 3px solid white;
+} */

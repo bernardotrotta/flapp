@@ -1,0 +1,37 @@
+table {
+    overflow: scroll;
+    text-align: start;
+    text-wrap: nowrap; 
+    
+}
+
+th {
+    padding: var(--spacing-sm) var(--spacing-lg);
+}
+
+td {
+    padding: var(--spacing-sm) var(--spacing-lg);
+}
+
+tr {
+    background: var(--color-gray-light);
+}
+
+tr:first-child td:first-child {
+    border: 2px solid orange;
+    border-bottom-left-radius: 10px;
+}
+    
+tr:last-child td:last-child {
+    border: 2px solid green;
+    border-bottom-right-radius: 10px;
+}
+
+
+
+#result-table {
+    grid-area: b;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+}

@@ -56,9 +56,10 @@
         <div id="user-page">
           <div class="widget" id="item1"></div>
           <div class="widget" id="item2">
-            <h2>Area clienti</h2>
+            <h3>Area clienti</h3>
 
-            <form action="/submit" method="POST">
+            <form action="./flights.php" method="POST">
+              <div class="fields">
               <div class="field1">
                 <label for="name">Nome:</label>
                 <input
@@ -66,6 +67,7 @@
                   id="name"
                   name="name"
                   placeholder="Inserisci il tuo nome"
+                  required
                 />
               </div>
 
@@ -76,6 +78,7 @@
                   id="surname"
                   name="surname"
                   placeholder="Inserisci il tuo cognome"
+                  required
                 />
               </div>
 
@@ -86,9 +89,10 @@
                   id="userid"
                   name="userid"
                   placeholder="Inserisci il tuo codice utente"
+                  required
                 />
               </div>
-
+              </div>
               <input type="submit" value="Invia" />
             </form>
           </div>

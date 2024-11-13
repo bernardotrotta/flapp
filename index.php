@@ -1,6 +1,8 @@
-<?php include "header.php;"; ?>
+<?php include "header.php"; ?>
 
-        <div class="cover"></div>
+        <div class="cover">
+
+        </div>
 
 <?php
 include "./menu.php";

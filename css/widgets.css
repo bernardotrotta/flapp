@@ -1,35 +1,46 @@
-#most-used-aircraft {
-  grid-area: w1;
+@import url("./variables.css");
+
+.banner {
+  box-shadow: var(--shadow);
   background-color: var(--menu-bg);
-  background-image: url(../img/airplane-1.jpg);
+  border-radius: var(--border-radius-lg);
+  background-image: url("../img/airplane-2.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: var(--border-radius-md);
   color: var(--color-white);
-  z-index: 0;
+  overflow: hidden;
+  height: 200px;
+}
+
+#most-used-aircraft {
+  grid-area: w1;
   overflow: hidden;
 }
 
-#most-used-aircraft .overlay {
+.banner-overlay {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
   background: linear-gradient(
     to top,
-    rgb(0, 0, 0, 0.5) 0%,
+    rgb(0, 0, 0, 0.4) 0%,
     rgba(0, 0, 0, 0) 100%
   );
   justify-content: end;
   padding: 20px;
   z-index: 1;
-  opacity: 1;
   transition: 0.3s;
+  opacity: 100;
+  gap: var(--spacing-xs);
+}
+
+#most-used-aircraft .banner-overlay {
   opacity: 0;
 }
 
-#most-used-aircraft .overlay:hover {
+#most-used-aircraft .banner-overlay:hover {
   opacity: 100;
 }
 
@@ -55,15 +66,21 @@
 }
 
 .flight-card {
-  
   display: flex;
   flex-direction: column;
 }
 
 .flight-card-info {
-    display: flex;
-    border-radius: var(--border-radius-lg);
-    overflow: hidden;
+  display: flex;
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+  overflow: hidden;
+  background-color: var(--color-gray-light);
+  justify-content: space-between;
+}
+
+.flight-card-info > img {
+  width: 48px;
+  fill: var(--color-primary);
 }
 
 .flight-card-item {
@@ -71,36 +88,98 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-gray-light);
+
   padding: 32px;
-  
-}
-
-.flight-card-departure {
-  grid-area: a;
-  width: 50%;
-
-}
-
-.flight-card-arrival {
-    width: 50%;
-  
 }
 
 .flight-card-check {
-  border-radius: var(--border-radius-lg);
+  border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
   background-color: var(--color-primary);
   color: var(--color-white);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
 }
 
-.flight-card-check:first-child {
-    flex-grow: 3;
-
+.flight-card-check:last-child {
+  flex-basis: 3;
 }
 
 #time {
-    font-size: 32px;
+  font-size: 32px;
+  font-weight: var(--font-weight-normal);
+}
+
+#price {
+  font-size: var(--font-size-xl);
+}
+
+h6 {
+  text-transform: uppercase;
+  font-size: var(--font-size-xs);
+}
+
+.form-label {
+  font-size: var(--font-size-xs);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.flight-card-check > span {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  flex-grow: 1;
+  justify-content: end;
+}
+
+.flight-duration {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.flight-duration > div {
+  flex-grow: 1;
+}
+
+/* .flight-duration input[type="submit"] {
+} */
+
+#flight-duration-banner {
+  grid-area: w1;
+}
+
+#user-area-banner {
+  grid-area: a;
+  background-image: url(../img/airplane-1.jpg);
+}
+
+.widget {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+}
+
+#feedback-page-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+#feedback-page-form .form-label {
+  width: 100%;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
 }

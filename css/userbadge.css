@@ -1,20 +1,20 @@
 #user-badge-container {
-    display: flex;
-    background: none !important;
-    box-shadow: none !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: var(--spacing-sm);
+	display: flex;
+	background: none !important;
+	box-shadow: none !important;
+	flex-direction: row !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+	gap: var(--spacing-sm);
 }
 
 .user-badge {
-    display: flex;
-    align-items: center !important;
-    gap: var(--spacing-sm)
+	display: flex;
+	align-items: center !important;
+	gap: var(--spacing-sm);
 }
 
 #userIcon {
-    width: 50px;
-    border-radius: 100%;
-  }
+	width: 50px;
+	border-radius: 100%;
+}

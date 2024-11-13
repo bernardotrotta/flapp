@@ -31,6 +31,7 @@ body {
   bottom: 0;
   width: 100%;
   z-index: -10;
+  /* display: none; */
 }
 
 .wrapper {
@@ -66,19 +67,23 @@ body {
 }
 
 #user-page {
-  display: grid !important;
-  grid-template-areas:
-    "a"
-    "b";
+  display: flex;
+  flex-direction: column;
   grid-gap: 48px;
 }
 
 #bookings-page {
-  display: grid !important;
-  grid-template-areas:
-    "a"
-    "c";
+  display: flex;
+  flex-direction: column;
   grid-gap: 48px;
+}
+
+#bookings-page-banner {
+  grid-area: bookings-page-banner;
+}
+
+#bookings-page-form {
+  grid-area: bookings-page-form;
 }
 
 #home-page {
@@ -86,34 +91,26 @@ body {
   grid-template-areas:
     "w1 w1 w1 w1"
     "w3 w3 w4 w4"
-    "w5 w5 w6 w6";
+    "w5 w5 w5 w5";
 }
 
-.widget {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
-  height: 100%;
+.scroll-container {
+  overflow-y: scroll;
+  scrollbar-gutter: stable both-edges;
+  scrollbar-color: var(--scrollbar-color) rgba(255, 255, 255, 0);
+  padding-left: calc(48px - 10px) !important;
+  padding-right: calc(48px - s10px) !important;
 }
 
-form div {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-}
-
-#item2 form {
+#item2 form > div {
   display: grid;
   grid-template-areas:
     "firstName lastName"
-    "customerId customerId"
-    "submit submit";
-  gap: 24px;
-
- 
+    "customerId customerId";
+  gap: var(--spacing-sm);
 }
 
-#item3 form {
+#bookings-page form {
   display: grid;
   grid-template-areas:
     "bookingId"
@@ -132,17 +129,6 @@ form div {
   gap: 10px;
 }
 
-#item1 {
-  grid-area: a;
-  box-shadow: var(--shadow);
-  background-color: var(--menu-bg);
-  border-radius: var(--border-radius-lg);
-  background-image: url("../img/airplane-2.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 #item2 {
   grid-area: b;
 }
@@ -150,32 +136,22 @@ form div {
   grid-area: c;
 }
 
-.field1 {
+#first-name {
   grid-area: firstName;
 }
-.field2 {
+#last-name {
   grid-area: lastName;
 }
-.field3 {
+
+#user-id {
   grid-area: customerId;
 }
 .field4 {
   grid-area: bookingId;
 }
 
-
-
-
-/* #widget2 {
-  grid-area: w2;
-} */
-
-
 #widget5 {
   grid-area: w5;
-}
-#widget6 {
-  grid-area: w6;
 }
 
 input {
@@ -260,21 +236,45 @@ section {
   gap: var(--spacing-sm);
 }
 
+.cover {
+  background: url("../img/airplane_3.jpg");
+  background-size: cover;
+  background-position: center;
+  flex: 2 !important;
+}
 
-/* ::-webkit-scrollbar {
-    background-color: transparent;
-    width: 40px;
+.rating {
+  direction: rtl;
+  display: inline;
 }
-* {
-    scrollbar-width: thin;
-    scrollbar-color: blue red
-    ;
+
+.rating .rating-radio {
+  display: none;
 }
-*::-webkit-scrollbar-track {
-    background-color: white;
+
+.rating label {
+  cursor: pointer;
+  color: var(--color-gray);
 }
-*::-webkit-scrollbar-thumb {
-    background-color: blue ;
-    border-radius: 20px;
-    border: 3px solid white;
-} */
+
+.rating label i {
+  font-size: 2em;
+  transition: 0.1s ease-in;
+}
+
+.rating label:hover i,
+.rating label:hover ~ label i {
+  cursor: pointer;
+  color: gold;
+}
+
+.rating label:active i,
+.rating label:active ~ label i {
+  cursor: pointer;
+  color: gold;
+}
+
+.rating input[type="radio"]:checked + label i,
+input[type="radio"]:checked ~ label i {
+  color: gold;
+}

@@ -7,4 +7,3 @@ $con = mysqli_connect('localhost', 'root', 'root', 'flapp');
 // } else {
 //     echo "Connessione riuscita!";
 // }
-?>

@@ -1,5 +1,7 @@
 <?php
-$con = mysqli_connect('localhost', 'root', 'root', 'flapp');
+include "var.php";
+
+$con = mysqli_connect("$DB", "root", "root", "flapp");
 
 // Verifica della connessione
 // if (!$con) {

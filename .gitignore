@@ -4,6 +4,8 @@ npm-debug.log
 
 # File di configurazione ambientale
 .env
+var.php
+
 
 # Cartelle di output
 dist/

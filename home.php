@@ -148,10 +148,10 @@ include "./menu.php";
                 </div>
                 <div class="widget" id="widget5">
                     <h3>Quanto dura il volo?</h3>
-                    <form class="flight-duration" action="./flight-duration.php">
-                            <div>
-                                <label for="departures">Partenza</label>
-                                <input type="text" name="departures" list="cities" placeholder="Roma" required>
+                    <form class="flight-duration" action="./flight-duration.php" method="POST">
+                            <div class="form-label">
+                                <label for="from">Partenza</label>
+                                <input type="text" name="from" list="cities" placeholder="Roma" required>
                                 <datalist id="cities">
                                 <?php if ($Cities) {
                                     if (mysqli_num_rows($Cities) > 0) {
@@ -173,9 +173,9 @@ include "./menu.php";
                                 } ?>
                                 </datalist>
                             </div>
-                            <div>
-                                <label for="arrivals">Destinazione</label>
-                                <input type="text" name="arivals" list="cities" placeholder="New York" required>
+                            <div class="form-label">
+                                <label for="to">Destinazione</label>
+                                <input type="text" name="to" list="cities" placeholder="New York" required>
                             </div>
                         <input type="submit" value="Invio">
                     </form>

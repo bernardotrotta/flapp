@@ -12,7 +12,8 @@ V.Data_arrivo,
 DATE_FORMAT(V.Orario_arrivo, '%H:%i') AS Orario_arrivo,
 A2.Città AS Città_arrivo,
 A2.Nome AS Aeroporto_arrivo,
-V.Durata
+V.Durata,
+Pr.Prezzo_biglietto
 FROM
 Prenotazioni Pr
 JOIN
@@ -87,7 +88,7 @@ include "./menu.php";
                             <div>
                                 <h6>Codice prenotazione</h6>
                                 <span><?php echo htmlspecialchars(
-                                    $row["Codice_prenotazione"]
+                                    $reservationid
                                 ); ?></span>
                             </div>
                             <span id="price">€<?php echo htmlspecialchars(

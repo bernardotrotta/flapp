@@ -275,3 +275,7 @@ section {
 input[type="radio"]:checked ~ label i {
   color: gold;
 }
+
+span {
+  text-align: center;
+}

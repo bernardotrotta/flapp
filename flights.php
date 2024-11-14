@@ -1,9 +1,9 @@
 <?php
+include "./database.php";
+
 $name = mysqli_real_escape_string($con, $_POST["name"]);
 $surname = mysqli_real_escape_string($con, $_POST["surname"]);
 $userid = mysqli_real_escape_string($con, $_POST["userid"]);
-
-include "./database.php";
 
 $sql = "SELECT
         P.Nome AS Nome_Passeggero,

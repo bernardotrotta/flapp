@@ -102,11 +102,8 @@ body {
   padding-right: calc(48px - s10px) !important;
 }
 
-#item2 form > div {
-  display: grid;
-  grid-template-areas:
-    "firstName lastName"
-    "customerId customerId";
+#user-area-form form > div {
+  display: flex;
   gap: var(--spacing-sm);
 }
 

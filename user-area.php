@@ -5,7 +5,7 @@ include "./menu.php";
         <div id="user-page">
           <div class="widget banner" id="user-area-banner"></div>
 
-          <div class="widget" id="item2">
+          <div class="widget" id="user-area-form">
             <h3>Area clienti</h3>
             
             <form action="./flights.php" method="POST" id="user">

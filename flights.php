@@ -1,7 +1,7 @@
 <?php
-$name = $_POST["name"];
-$surname = $_POST["surname"];
-$userid = $_POST["userid"];
+$name = mysqli_real_escape_string($con, $_POST["name"]);
+$surname = mysqli_real_escape_string($con, $_POST["surname"]);
+$userid = mysqli_real_escape_string($con, $_POST["userid"]);
 
 include "./database.php";
 
@@ -35,7 +35,7 @@ include "./header.php";
 include "./menu.php";
 ?>
             <div id="user-page">
-                <div class="widget" id="user-badge">
+                <div class="widget scroll-container" id="user-badge">
                     <?php if (mysqli_num_rows($result) > 0) {
                         echo '<div class="user-badge">';
                         echo '<img id="userIcon" src="./img/icons/user.jpg" alt="">';

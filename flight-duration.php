@@ -3,8 +3,8 @@ include "./header.php";
 include "./menu.php";
 include "./database.php";
 
-$from = $_POST["from"];
-$to = $_POST["to"];
+$from = mysqli_real_escape_string($con, $_POST["from"]);
+$to = mysqli_real_escape_string($con, $_POST["to"]);
 $sql = "SELECT
         v.Durata
         FROM 

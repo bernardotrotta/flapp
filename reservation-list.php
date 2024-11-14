@@ -1,7 +1,7 @@
 <?php
 include "./database.php";
 
-$reservationid = $_POST["reservationID"];
+$reservationid = mysqli_real_escape_string($con, $_POST["reservationID"]);
 
 $sql = "SELECT
 V.Data_partenza,

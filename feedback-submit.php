@@ -3,9 +3,9 @@ include "./database.php";
 include "./header.php";
 include "./menu.php";
 
-$author = $_POST["author"];
-$content = $_POST["content"];
-$rating = $_POST["rating"];
+$author = mysqli_real_escape_string($con, $_POST["author"]);
+$content = mysqli_real_escape_string($con, $_POST["content"]);
+$rating = mysqli_real_escape_string($con, $_POST["rating"]);
 $sql = "INSERT INTO Recensioni (Nome_utente,Contenuto,Valutazione) VALUES ('$author','$content',$rating)";
 ?>
         

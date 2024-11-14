@@ -5,7 +5,7 @@
         </div>
 
 <?php
-include "./menu.php";
+include "./index-menu.php";
 include "./footer.php";
 ?>
 

@@ -57,13 +57,13 @@
   grid-area: w4;
 }
 
-#results-table {
+/* #results-table {
   overflow-y: scroll;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
-}
+} */
 
 .flight-card {
   display: flex;

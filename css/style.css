@@ -96,10 +96,8 @@ body {
 
 .scroll-container {
   overflow-y: scroll;
-  scrollbar-gutter: stable both-edges;
-  scrollbar-color: var(--scrollbar-color) rgba(255, 255, 255, 0);
-  padding-left: calc(48px - 10px) !important;
-  padding-right: calc(48px - s10px) !important;
+  /* scrollbar-gutter: stable both-edges; */
+  /* scrollbar-color: var(--scrollbar-color) rgba(255, 255, 255, 0); */
 }
 
 #user-area-form form > div {
@@ -274,10 +272,6 @@ section {
 .rating input[type="radio"]:checked + label i,
 input[type="radio"]:checked ~ label i {
   color: gold;
-}
-
-span {
-  text-align: center;
 }
 
 /* Ennesima prova */

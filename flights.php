@@ -34,8 +34,8 @@ $result = mysqli_query($con, $sql);
 include "./header.php";
 include "./menu.php";
 ?>
-            <div id="user-page">
-                <div class="widget scroll-container" id="user-badge">
+            <div class="scroll-container" id="user-page">
+                <div class="widget" id="user-badge">
                     <?php if (mysqli_num_rows($result) > 0) {
                         echo '<div class="user-badge">';
                         echo '<img id="userIcon" src="./img/icons/user.jpg" alt="">';

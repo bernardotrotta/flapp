@@ -35,10 +35,9 @@ $result = mysqli_query($con, $sql);
                     ); ?> </b></span>                    
                     <?php }
                         } else {
-                             ?>
-                                <h3>Ci dispiace!</h3>
-                                <p>Non è disponibile una durata stimata per questa tratta!</p>
-                            <?php
+                            $message =
+                                "Non è disponibile una durata stimata per questa tratta.";
+                            include "./warning.php";
                         }
                     } ?>
                 </div>

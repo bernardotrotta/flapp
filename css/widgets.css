@@ -190,3 +190,11 @@ form {
   align-items: center;
   gap: 32px;
 }
+
+.warning {
+  background-color: #ffe1b3;
+  border-radius: var(--border-radius-md);
+  color: #c27400;
+  box-shadow: var(--shadow);
+  padding: var(--spacing-md) var(--border-radius-lg);
+}

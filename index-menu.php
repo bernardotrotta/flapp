@@ -5,7 +5,7 @@
   <nav>
     <ul>
       <li>
-        <a href="./menu.php"
+        <a href="./home.php"
           ><img src="./img/icons/uil_user.svg" alt="" />Area utente</a
         >
       </li>

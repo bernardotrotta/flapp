@@ -27,5 +27,6 @@ Thumbs.db
 .idea/
 *.swp
 .prettierrc
+.htaccess
 
 compagnia_aerea/

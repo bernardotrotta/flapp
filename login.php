@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["login"])) {
         exit();
     }
 
-    $sql = "SELECT Password FROM Personale WHERE ID_DIPENDENTE = ?";
+    $sql = "SELECT * FROM Personale WHERE ID_DIPENDENTE = ?";
     $stmt = mysqli_prepare($con, $sql);
     mysqli_stmt_bind_param($stmt, "s", $_POST["employee-id"]);
     mysqli_stmt_execute($stmt);
@@ -16,7 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["login"])) {
     if ($result && ($row = mysqli_fetch_assoc($result))) {
         if (password_verify($_POST["pass"], $row["Password"])) {
             $_SESSION["employee-id"] = $_POST["employee-id"];
-            echo "Benvenuto!";
+            $_SESSION["first-name"] = $row["Nome"];
+            $_SESSION["last-name"] = $row["Cognome"];
+            $_SESSION["role"] = $row["Ruolo"];
+            header("Location: ./staff-area.php");
         } else {
             echo "Password sbagliata.";
         }
@@ -30,20 +33,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["login"])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="" method="POST">
-        <label for="empolyee-id">ID Dipendente</label>
-        <input type="text" name="employee-id" id="employee-id" required>
-        <label for="password">Password</label>
-        <input type="password" name="pass" id="password" required>
-        <input type="submit" value="Invia" name="login">
-    </form>
-</body>
-</html>
+<?php
+include "./header.php";
+include "./menu.php";
+?>
+
+<div id="login-page">
+    <div class="widget">
+        <h2>Area Staff</h2>
+        <form action="" method="POST">
+            <div>
+                <label for="empolyee-id">ID Dipendente</label>
+                <input type="text" name="employee-id" id="employee-id" required>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="pass" id="password" required>
+            </div>
+            <input type="submit" value="Invia" name="login">
+        </form>
+    </div>
+</div>
+
+<?php include "./footer.php";
+?>

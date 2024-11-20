@@ -10,14 +10,14 @@
         >
       </li>
       <li>
-        <a href="./staff-area"
+        <a href="./login"
           ><img src="./img/icons/uil_headphones.svg" alt="" />Area staff</a
         >
       </li>
 
       <hr>
 
-        <li><a href="">Doina Cauliuc</a></li>
+        <li><a href="https://github.com/doinacauliuc">Doina Cauliuc</a></li>
         <li><a href="https://github.com/bernardotrotta">Bernardo Trotta</a></li>
         
       </ul>

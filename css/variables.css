@@ -9,9 +9,11 @@
 
   /* Whites and Blacks */
   --color-black: #000000;
-  --color-gray-dark: #2c3e50;
-  --color-gray: #95a5a6;
-  --color-gray-light: #ecf0f1;
+  --color-gray-dark: #666666;
+  --color-gray-mid-dark: #858585;
+  --color-gray: #a6a6a6;
+  --color-gray-light: #e5e5e5;
+  --color-gray-mid-light: #c7c7c7;
   --color-white: #ffffff;
 
   /* Typography */

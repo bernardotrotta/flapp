@@ -49,6 +49,18 @@ include "./menu.php";
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) { ?>
                     <div class="flight-card">
+
+                        <div class="flight-card-header">
+                            <ul>
+                                <li><a href="./edit-reservation.php?reservation_code=<?php echo htmlspecialchars(
+                                    $row["Codice_prenotazione"]
+                                ); ?>">Modifica</a></li>
+                                <li><a href="./delete-reservation.php?reservation_code=<?php echo htmlspecialchars(
+                                    $row["Codice_prenotazione"]
+                                ); ?>">Cancella</a></li>
+                            </ul>
+                        </div>
+
                         <div class="flight-card-info">
                             <div class="flight-card-item flight-card-departure">
                                 <span id="time"><?php echo htmlspecialchars(

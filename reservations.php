@@ -2,6 +2,7 @@
 include "./header.php";
 include "./menu.php";
 ?>
+
         <div id="bookings-page">
           <div class="widget banner" id="bookings-page-banner"></div>
 
@@ -21,5 +22,6 @@ include "./menu.php";
             </form>
           </div>
         </div>
+
 <?php include "./footer.php";
 ?>

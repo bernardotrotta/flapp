@@ -8,6 +8,7 @@ include "./menu.php";
         <p>Stai per eliminare la prenotazione con ID = <?php echo htmlspecialchars(
             $_GET["reservation_code"]
         ); ?></p>
+        <button>Elimina</button>
     </div>
 </div>
 <?php include "./footer.php"; ?>

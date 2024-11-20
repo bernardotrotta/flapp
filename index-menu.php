@@ -10,7 +10,7 @@
         >
       </li>
       <li>
-        <a href=""
+        <a href="./staff-area"
           ><img src="./img/icons/uil_headphones.svg" alt="" />Area staff</a
         >
       </li>

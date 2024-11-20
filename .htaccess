@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Rimuove l'estensione .php
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# Rimuove l'estensione .html
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Imposta la directory index senza estensioni
+DirectoryIndex index.php index.html

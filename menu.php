@@ -1,21 +1,21 @@
 <!-- Menù  -->
 
 <div class="menu">
-  <h2><a href="./index.php">Flapp</a></h2>
+  <h2><a href="./index">Flapp</a></h2>
   <nav>
     <ul>
       <li>
-        <a href="./home.php"
+        <a href="./home"
           ><img src="./img/icons/uil_plane-departure.svg" alt="" />Home</a
         >
       </li>
       <li>
-        <a href="./user-area.php"
+        <a href="./user-area"
           ><img src="./img/icons/uil_user.svg" alt="" />Area utente</a
         >
       </li>
       <li>
-        <a href="./reservations.php"
+        <a href="./reservations"
           ><img src="./img/icons/uil_calender.svg" alt="" />Cerca una
           prenotazione</a
         >
@@ -29,6 +29,6 @@
   </nav>
   <span class="review"
     >Ti piace il nostro servizio?
-    <a href="./feedback.php">Lascia una recensione</a></span
+    <a href="./feedback">Lascia una recensione</a></span
   >
 </div>

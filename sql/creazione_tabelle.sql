@@ -176,7 +176,7 @@ INSERT INTO `Passeggeri` (`ID_PASSEGGERO`, `Nome`, `Cognome`, `Codice_fiscale`, 
 ('9876543210', 'Alberto', 'Leone', 'LNOLBT90M14', '1990-12-14', '+39 327 654 3210', 'alberto.leone90@email.com');
 
 INSERT INTO Personale (ID_DIPENDENTE, Nome, Cognome, Data_nascita, Codice_fiscale, Ruolo, Password) VALUES
-('DIP0000001', 'Luca', 'Rossi', '1985-03-15', 'RSSLCU85C15H501Z', 'Pilota', , '$2y$10$KyGPIv1nYARv6814cohfc.aYJrwQoxSJVTlOA3Eegdvdzg6da3JN.'),
+('DIP0000001', 'Luca', 'Rossi', '1985-03-15', 'RSSLCU85C15H501Z', 'Pilota', '$2y$10$KyGPIv1nYARv6814cohfc.aYJrwQoxSJVTlOA3Eegdvdzg6da3JN.'),
 ('DIP0000002', 'Sara', 'Bianchi', '1990-07-21', 'BNCSDR90L61F205Z', 'Steward', '$2y$10$fCDpkMKKqKHxSsez4lKANu/6a.pjRnR2CmUMK8c8fRRv569IPEbze'),
 ('DIP0000003', 'Marco', 'Verdi', '1982-12-02', 'VRDMRC82T02H501G', 'Pilota', '$2y$10$sU6zZNzmvU8KcL9CoSTyX.Vl1Fw5.3e7NcJg5jzNntBJZ2iaZaA8S'),
 ('DIP0000004', 'Francesca', 'Neri', '1988-01-30', 'NRIFNC88A70F205W', 'Steward', '$2y$10$3hlYfda8UVSxU1FnA2Yayey9cHv/7rDhlZ2RC3dGpiJbjnjCRdhCK'),

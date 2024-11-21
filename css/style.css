@@ -276,10 +276,12 @@ input[type="radio"]:checked ~ label i {
 }
 
 /* Ennesima prova */
-form label {
+form div {
   font-size: var(--font-size-xs);
   display: flex;
+  flex-direction: column;
   gap: var(--spacing-sm);
+  width: 100%;
 }
 
 form {

@@ -135,13 +135,6 @@ h6 {
   font-size: var(--font-size-xs);
 }
 
-.form-label {
-  font-size: var(--font-size-xs);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-}
-
 .flight-card-check > span {
   display: flex;
   flex-direction: row;

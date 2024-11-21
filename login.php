@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "./database.php";
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["login"])) {
     if (!isset($_POST["employee-id"])) {
         echo "ID Dipendente non fornito.";

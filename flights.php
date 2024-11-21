@@ -1,9 +1,9 @@
 <?php
 include "./database.php";
 
-$name = mysqli_real_escape_string($con, $_POST["name"]);
-$surname = mysqli_real_escape_string($con, $_POST["surname"]);
-$userid = mysqli_real_escape_string($con, $_POST["userid"]);
+// $name = mysqli_real_escape_string($con, $_POST["name"]);
+// $surname = mysqli_real_escape_string($con, $_POST["surname"]);
+// $userid = mysqli_real_escape_string($con, $_POST["userid"]);
 
 $sql = "SELECT
         P.Nome AS Nome_Passeggero,
@@ -27,22 +27,29 @@ $sql = "SELECT
             Aeroporti A1 ON V.Aeroporto_partenza = A1.ID_AEROPORTO
         JOIN
             Aeroporti A2 ON V.Aeroporto_arrivo = A2.ID_AEROPORTO
-        WHERE P.ID_PASSEGGERO = '$userid'";
+        WHERE P.ID_PASSEGGERO = ?";
 
-$result = mysqli_query($con, $sql);
+$stmt = mysqli_prepare($con, $sql);
+mysqli_stmt_bind_param($stmt, "s", $_POST["userid"]);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
 
 include "./header.php";
 include "./menu.php";
 ?>
+
             <div class="scroll-container" id="user-page">
                 <div class="widget" id="user-badge">
-                    <?php if (mysqli_num_rows($result) > 0) {
+                    <?php if ($row = mysqli_num_rows($result) > 0) {
                         echo '<div class="user-badge">';
                         echo '<img id="userIcon" src="./img/icons/user.jpg" alt="">';
-                        echo "<span>Ciao, <b>$name</b>!</span>";
+                        echo "<span>Ciao, <b>" .
+                            $_POST["name"] .
+                            "</b>!</span>";
                         echo "</div>";
                     } ?>
                 </div>
+
                 <div class="widget" id="results-table">
                     <?php
                     if ($result) {
@@ -73,6 +80,7 @@ include "./menu.php";
                                     $row["Città_partenza"]
                                 ); ?></span>
                             </div>
+
                             <img src="./img/airplane.svg" alt="" />
                             <div class="flight-card-item flight-card-arrival">
                                 <span id="time"><?php echo htmlspecialchars(
@@ -86,6 +94,7 @@ include "./menu.php";
                                 ); ?></span>
                             </div>
                         </div>
+
                         <div class="flight-card-item flight-card-check">
                             <div>
                                 <h6>Data</h6>
@@ -93,28 +102,34 @@ include "./menu.php";
                                     $row["Data_partenza"]
                                 ); ?></span>
                             </div>
+
                             <div>
                                 <h6>Codice prenotazione</h6>
                                 <span><?php echo htmlspecialchars(
                                     $row["Codice_prenotazione"]
                                 ); ?></span>
                             </div>
+
                             <span id="price">€<?php echo htmlspecialchars(
                                 $row["Prezzo_biglietto"]
                             ); ?></span>
                         </div>
                     </div>
+
                     <?php }
                         } else {
                             // echo "Nessuna prenotazione associata a questo codice utente.";
                             header("Location: ./no-results.php");
+                            exit();
                         }
                     } else {
                         echo "Errore nella query: " . mysqli_error($con);
                     }
+                    mysqli_stmt_close($stmt);
                     mysqli_close($con);
                     ?>
                 </div>
             </div>
+
 <?php include "./footer.php"; ?>
 

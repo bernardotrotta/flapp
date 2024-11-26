@@ -55,72 +55,78 @@ include "./menu.php";
                     if ($result) {
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) { ?>
-                    <div class="flight-card">
+                                <div class="flight-card">
 
-                        <div class="flight-card-header">
-                            <ul>
-                                <li><a href="./edit-reservation.php?reservation_code=<?php echo htmlspecialchars(
-                                    $row["Codice_prenotazione"]
-                                ); ?>">Modifica</a></li>
-                                <li><a href="./delete-reservation.php?reservation_code=<?php echo htmlspecialchars(
-                                    $row["Codice_prenotazione"]
-                                ); ?>">Cancella</a></li>
-                            </ul>
-                        </div>
+                                    <div class="flight-card-header">
+                                        <form action="./edit-reservation.php" method="POST" id="edit-reservation">
+                                              <input type="hidden" name="reservation_id" id="reservation_id" value="<?php echo htmlspecialchars(
+                                                  $row["Codice_prenotazione"]
+                                              ); ?>">
+                                              <input type="submit" value="Modifica" name="edit-reservation">
+                                        </form>    
+                                        <form action="./delete-reservation.php" method="POST" id="delete_reservation">
+                                              <input type="hidden" name="reservation_id" id="reservation_id" value="<?php echo htmlspecialchars(
+                                                  $row["Codice_prenotazione"]
+                                              ); ?>">
+                                              <input type="submit" value="Cancella" name="delete-reservation">
+                                        </form>    
+                                    </div>
 
-                        <div class="flight-card-info">
-                            <div class="flight-card-item flight-card-departure">
-                                <span id="time"><?php echo htmlspecialchars(
-                                    $row["Orario_partenza"]
-                                ); ?></span>
-                                <span><?php echo htmlspecialchars(
-                                    $row["Aeroporto_partenza"]
-                                ); ?></span>
-                                <span><?php echo htmlspecialchars(
-                                    $row["Città_partenza"]
-                                ); ?></span>
+                                    <div class="flight-card-info">
+                                        <div class="flight-card-item flight-card-departure">
+                                            <span id="time"><?php echo htmlspecialchars(
+                                                $row["Orario_partenza"]
+                                            ); ?></span>
+                                            <span><?php echo htmlspecialchars(
+                                                $row["Aeroporto_partenza"]
+                                            ); ?></span>
+                                            <span><?php echo htmlspecialchars(
+                                                $row["Città_partenza"]
+                                            ); ?></span>
+                                        </div>
+
+                                    <img src="./img/airplane.svg" alt="" />
+
+                                    <div class="flight-card-item flight-card-arrival">
+                                        <span id="time"><?php echo htmlspecialchars(
+                                            $row["Orario_arrivo"]
+                                        ); ?></span>
+                                        <span><?php echo htmlspecialchars(
+                                            $row["Aeroporto_arrivo"]
+                                        ); ?></span>
+                                        <span><?php echo htmlspecialchars(
+                                            $row["Città_arrivo"]
+                                        ); ?></span>
+                                    </div>
+
+                                </div>
+
+                                <div class="flight-card-item flight-card-check">
+                                    <div>
+                                        <h6>Data</h6>
+                                        <span><?php echo htmlspecialchars(
+                                            $row["Data_partenza"]
+                                        ); ?></span>
+                                    </div>
+
+                                    <div>
+                                        <h6>Codice prenotazione</h6>
+                                        <span><?php echo htmlspecialchars(
+                                            $row["Codice_prenotazione"]
+                                        ); ?></span>
+                                    </div>
+
+                                    <span id="price">€<?php echo htmlspecialchars(
+                                        $row["Prezzo_biglietto"]
+                                    ); ?></span>
+                                </div>
                             </div>
-
-                            <img src="./img/airplane.svg" alt="" />
-                            <div class="flight-card-item flight-card-arrival">
-                                <span id="time"><?php echo htmlspecialchars(
-                                    $row["Orario_arrivo"]
-                                ); ?></span>
-                                <span><?php echo htmlspecialchars(
-                                    $row["Aeroporto_arrivo"]
-                                ); ?></span>
-                                <span><?php echo htmlspecialchars(
-                                    $row["Città_arrivo"]
-                                ); ?></span>
-                            </div>
-                        </div>
-
-                        <div class="flight-card-item flight-card-check">
-                            <div>
-                                <h6>Data</h6>
-                                <span><?php echo htmlspecialchars(
-                                    $row["Data_partenza"]
-                                ); ?></span>
-                            </div>
-
-                            <div>
-                                <h6>Codice prenotazione</h6>
-                                <span><?php echo htmlspecialchars(
-                                    $row["Codice_prenotazione"]
-                                ); ?></span>
-                            </div>
-
-                            <span id="price">€<?php echo htmlspecialchars(
-                                $row["Prezzo_biglietto"]
-                            ); ?></span>
-                        </div>
-                    </div>
 
                     <?php }
                         } else {
-                            // echo "Nessuna prenotazione associata a questo codice utente.";
-                            header("Location: ./no-results.php");
-                            exit();
+                            echo "Nessuna prenotazione associata a questo codice utente.";
+                            // header("Location: ./no-results.php");
+                            // exit();
                         }
                     } else {
                         echo "Errore nella query: " . mysqli_error($con);

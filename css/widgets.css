@@ -117,6 +117,10 @@
   justify-content: end;
 }
 
+flight-card-header form {
+  display: inline;
+}
+
 .flight-card-header ul li a {
   color: var(--color-gray-dark);
 }

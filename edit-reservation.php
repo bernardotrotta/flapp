@@ -4,10 +4,7 @@ include "./menu.php";
 ?>
 
 <div class="">
-    <?php
-    $reservation_code = $_GET["reservation_code"];
-    echo $reservation_code;
-    ?>
+    <?php echo $_POST["reservation_id"]; ?>
 </div>
 
 <?php include "./footer.php";

@@ -41,7 +41,8 @@ $sql = "SELECT
             Aeroporti A1 ON V.Aeroporto_partenza = A1.ID_AEROPORTO
         JOIN
             Aeroporti A2 ON V.Aeroporto_arrivo = A2.ID_AEROPORTO
-        WHERE P.ID_PASSEGGERO = ?";
+        WHERE P.ID_PASSEGGERO = ?
+        AND V.Data_partenza > CURRENT_DATE()";
 
 $stmt = mysqli_prepare($con, $sql);
 mysqli_stmt_bind_param($stmt, "s", $_SESSION["user-id"]);

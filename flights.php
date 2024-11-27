@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include "./database.php";
 include "./header.php";
@@ -9,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION["last-name"] = $_POST["last-name"];
     $_SESSION["user-id"] = $_POST["user-id"];
 } else {
-    echo "Errore! Accesso non autorizzato";
+    die("Errore: Accesso non autorizzato.");
 }
 
 // $name = mysqli_real_escape_string($con, $_POST["name"]);

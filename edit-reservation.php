@@ -1,4 +1,9 @@
 <?php
+
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    die("Errore: Accesso non autorizzato.");
+}
+
 session_start();
 include "./header.php";
 include "./menu.php";
@@ -77,7 +82,7 @@ $result = mysqli_stmt_get_result($stmt);
                                         ); ?></span>
                                     </div>
                                     <div>
-                                        <form action="./update-result.php" method="POST">
+                                        <form action="./confirm-edit-reservation.php" method="POST">
                                             <input type="hidden" name="flight_id" id="flight_id" value="<?php echo htmlspecialchars(
                                                 $row["ID_Volo"]
                                             ); ?>">

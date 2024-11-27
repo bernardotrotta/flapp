@@ -48,18 +48,18 @@ $result2 = mysqli_query($con, $sql3);
 <div class="scroll-container">
     <div class="widget">
         <?php
-        echo $_POST["flight_id"];
+        echo "ID volo selezionato: " . $_POST["flight_id"] . "<br>";
         if ($row = mysqli_fetch_assoc($result)) {
-            echo $row["Posti_disponibili"];
+            echo "Posti disponibili: " . $row["Posti_disponibili"] . "<br>";
             if (mysqli_execute($stmt2)) {
-                echo "Prenotazione eliminata";
+                echo "Vecchia prenotazione eliminata con successo!" . "<br>";
                 if ($result2) {
                     $row2 = mysqli_fetch_assoc($result2);
                     if ($row2) {
-                        // Ottieni il nuovo ID prenotazione
                         $nuovoID = $row2["NuovoID_Prenotazione"];
-                        echo "Il nuovo ID prenotazione è: " . $nuovoID;
+                        echo "Il nuovo ID prenotazione è: " . $nuovoID . "<br>";
                         mysqli_execute($stmt3);
+                        echo "Nuova prenotazione creata con successo!";
                     } else {
                         echo "Nessun risultato trovato.";
                     }

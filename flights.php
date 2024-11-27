@@ -1,5 +1,16 @@
 <?php
+session_start();
 include "./database.php";
+include "./header.php";
+include "./menu.php";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $_SESSION["first-name"] = $_POST["first-name"];
+    $_SESSION["last-name"] = $_POST["last-name"];
+    $_SESSION["user-id"] = $_POST["user-id"];
+} else {
+    echo "Errore! Accesso non autorizzato";
+}
 
 // $name = mysqli_real_escape_string($con, $_POST["name"]);
 // $surname = mysqli_real_escape_string($con, $_POST["surname"]);
@@ -14,8 +25,10 @@ $sql = "SELECT
         DATE_FORMAT(V.Orario_arrivo, '%H:%i') AS Orario_arrivo,
         A1.Città AS Città_partenza,
         A1.Nome AS Aeroporto_partenza,
+        A1.Codice_iata AS Iata_partenza,
         A2.Città AS Città_arrivo,
         A2.Nome AS Aeroporto_arrivo,
+        A2.Codice_iata AS Iata_arrivo,
         Pr.Prezzo_biglietto
         FROM
             Prenotazioni Pr
@@ -30,12 +43,9 @@ $sql = "SELECT
         WHERE P.ID_PASSEGGERO = ?";
 
 $stmt = mysqli_prepare($con, $sql);
-mysqli_stmt_bind_param($stmt, "s", $_POST["userid"]);
+mysqli_stmt_bind_param($stmt, "s", $_SESSION["user-id"]);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
-
-include "./header.php";
-include "./menu.php";
 ?>
 
             <div class="scroll-container" id="user-page">
@@ -44,7 +54,7 @@ include "./menu.php";
                         echo '<div class="user-badge">';
                         echo '<img id="userIcon" src="./img/icons/user.jpg" alt="">';
                         echo "<span>Ciao, <b>" .
-                            $_POST["name"] .
+                            $_SESSION["first-name"] .
                             "</b>!</span>";
                         echo "</div>";
                     } ?>
@@ -62,6 +72,15 @@ include "./menu.php";
                                               <input type="hidden" name="reservation_id" id="reservation_id" value="<?php echo htmlspecialchars(
                                                   $row["Codice_prenotazione"]
                                               ); ?>">
+                                              <input type="hidden" name="departure" id="departure" value="<?php echo htmlspecialchars(
+                                                  $row["Iata_partenza"]
+                                              ); ?>">
+                                              <input type="hidden" name="arrival" id="arrival" value="<?php echo htmlspecialchars(
+                                                  $row["Iata_arrivo"]
+                                              ); ?>">
+                                              <input type="hidden" name="price" id="price" value="<?php echo htmlspecialchars(
+                                                  $row["Prezzo_biglietto"]
+                                              ); ?>">
                                               <input type="submit" value="Modifica" name="edit-reservation">
                                         </form>    
                                         <form action="./delete-reservation.php" method="POST" id="delete_reservation">
@@ -77,9 +96,9 @@ include "./menu.php";
                                             <span id="time"><?php echo htmlspecialchars(
                                                 $row["Orario_partenza"]
                                             ); ?></span>
-                                            <span><?php echo htmlspecialchars(
-                                                $row["Aeroporto_partenza"]
-                                            ); ?></span>
+                                            <span><b><?php echo htmlspecialchars(
+                                                $row["Iata_partenza"]
+                                            ); ?></b></span>
                                             <span><?php echo htmlspecialchars(
                                                 $row["Città_partenza"]
                                             ); ?></span>
@@ -91,9 +110,9 @@ include "./menu.php";
                                         <span id="time"><?php echo htmlspecialchars(
                                             $row["Orario_arrivo"]
                                         ); ?></span>
-                                        <span><?php echo htmlspecialchars(
-                                            $row["Aeroporto_arrivo"]
-                                        ); ?></span>
+                                        <span><b><?php echo htmlspecialchars(
+                                            $row["Iata_arrivo"]
+                                        ); ?></b></span>
                                         <span><?php echo htmlspecialchars(
                                             $row["Città_arrivo"]
                                         ); ?></span>

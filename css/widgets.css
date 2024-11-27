@@ -70,7 +70,6 @@
   flex-direction: column;
   border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
   overflow: hidden;
-  background-color: var(--color-gray-light);
   justify-content: space-between;
 }
 
@@ -107,6 +106,13 @@
 
 .flight-card-check:last-child {
   flex-basis: 3;
+}
+
+.flight-card-header {
+  display: flex;
+  flex-direction: row;
+  background: var(--color-gray-mid-light);
+  justify-content: end;
 }
 
 .flight-card-header ul {

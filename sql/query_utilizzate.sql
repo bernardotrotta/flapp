@@ -258,6 +258,31 @@ JOIN
 WHERE 
     Pr.ID_PRENOTAZIONE = 'BK00000003';
 
+
+-- OTTIENI LA LISTA DELLE POSSIBILI SOSTITUIZIONI
+SELECT 
+    V.Data_partenza,
+    V.Orario_partenza,
+    A1.Città AS Città_partenza,
+    A1.Codice_iata AS Aeroporto_partenza,
+    V.Data_arrivo,
+    V.Orario_arrivo,
+    A2.Città AS Città_arrivo,
+    A2.Codice_iata AS Aeroporto_arrivo,
+    V.Durata
+FROM 
+    Voli AS V
+JOIN 
+    Aeroporti A1 ON V.Aeroporto_partenza = A1.ID_AEROPORTO
+JOIN 
+    Aeroporti A2 ON V.Aeroporto_arrivo = A2.ID_AEROPORTO
+WHERE 
+    A1.Codice_iata = "MAD"
+AND
+    A2.Codice_iata = "NRT"
+AND V.Data_partenza > CURRENT_DATE();
+
+
 -- Numero di prenotazioni per volo
 SELECT 
     Volo AS ID_VOLO, 
@@ -288,6 +313,20 @@ WHERE ID_PRENOTAZIONE = "BK00000001";
 INSERT INTO `Prenotazioni` (`ID_PRENOTAZIONE`, `Passeggero`, `Volo`, `Prezzo_biglietto`) VALUES
 ('BK00000001', '1234567890', 'FL00000001', '189.67');
 
+-- CONTA I POSTI VUOTI
+SELECT 
+    V.ID_VOLO,
+    A.Capacità - IFNULL(COUNT(P.ID_PRENOTAZIONE), 0) AS Posti_disponibili
+FROM 
+    Voli V
+JOIN 
+    Aerei A ON V.Aereo = A.ID_AEREO
+LEFT JOIN 
+    Prenotazioni P ON V.ID_VOLO = P.Volo
+WHERE 
+    V.ID_VOLO = "FL00000002"
+GROUP BY 
+    V.ID_VOLO, A.Capacità;
 
 -- QUERY PER GENERARE NUOVO ID PRENOTAZIONE
 -- siccome gli ID delle preontazioni sono generati in modo incrementale
@@ -304,7 +343,7 @@ FROM Prenotazioni;
 
 
 -- ELIMINARE PRENOTAZIONE VECCHIA
-DELETE FROM Prenotazione
+DELETE FROM Prenotazioni
 WHERE ID_PRENOTAZIONE = "BK00000001";
 
 

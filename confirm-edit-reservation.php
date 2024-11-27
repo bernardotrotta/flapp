@@ -49,7 +49,8 @@ $result2 = mysqli_query($con, $sql3);
     <div class="widget">
         <?php
         echo "ID volo selezionato: " . $_POST["flight_id"] . "<br>";
-        if ($row = mysqli_fetch_assoc($result)) {
+        $row = mysqli_fetch_assoc($result);
+        if ($row && $row["Posti_disponibili"] > 0) {
             echo "Posti disponibili: " . $row["Posti_disponibili"] . "<br>";
             if (mysqli_execute($stmt2)) {
                 echo "Vecchia prenotazione eliminata con successo!" . "<br>";
@@ -67,8 +68,10 @@ $result2 = mysqli_query($con, $sql3);
                     echo "Errore nella query: " . mysqli_error($mysqli);
                 }
             } else {
-                echo "Errore nella query";
+                echo "Errore nella query: " . mysqli_error($mysqli);
             }
+        } else {
+            echo "Nessun posto disponibile sull'aereo!";
         }
         ?>
     </div>

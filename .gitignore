@@ -1,32 +1,15 @@
-# Dipendenze del Node.js
 node_modules/
 npm-debug.log
-
-# File di configurazione ambientale
 .env
-var.php
-
-
-# Cartelle di output
-dist/
-build/
-
-# Log
 *.log
-
-# Cartelle temporanee
 tmp/
 temp/
-
-# Sistema operativo
 .DS_Store
 Thumbs.db
-
-# File relativi a editor e IDE
 .vscode/
-.idea/
 *.swp
 .prettierrc
 .htaccess
+package-lock.json
+package.json
 
-compagnia_aerea/

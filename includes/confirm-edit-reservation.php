@@ -1,8 +1,11 @@
 <?php
 session_start();
-include "./header.php";
-include "./menu.php";
-include "./database.php";
+
+require_once 'config.php';
+
+include TEMPLATES_PATH . 'header.php';
+include TEMPLATES_PATH . 'menu.php';
+include TEMPLATES_PATH . 'database.php';
 
 $sql = "SELECT 
     V.ID_VOLO,
@@ -27,48 +30,48 @@ FROM Prenotazioni";
 $sql4 = "INSERT INTO `Prenotazioni` (`ID_PRENOTAZIONE`, `Passeggero`, `Volo`, `Prezzo_biglietto`) VALUES
 (?, ?, ?, ?);";
 
-$stmt = mysqli_prepare($con, $sql);
-mysqli_stmt_bind_param($stmt, "s", $_POST["flight_id"]);
-$stmt2 = mysqli_prepare($con, $sql2);
-$stmt3 = mysqli_prepare($con, $sql4);
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, 's', $_POST['flight_id']);
+$stmt2 = mysqli_prepare($conn, $sql2);
+$stmt3 = mysqli_prepare($conn, $sql4);
 mysqli_stmt_bind_param(
     $stmt3,
-    "sssd",
+    'sssd',
     $nuovoID,
-    $_SESSION["user-id"],
-    $_POST["flight_id"],
-    $_POST["price"]
+    $_SESSION['user-id'],
+    $_POST['flight_id'],
+    $_POST['price'],
 );
-mysqli_stmt_bind_param($stmt2, "s", $_POST["reservation_id"]);
+mysqli_stmt_bind_param($stmt2, 's', $_POST['reservation_id']);
 mysqli_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
-$result2 = mysqli_query($con, $sql3);
+$result2 = mysqli_query($conn, $sql3);
 ?>
 
 <div class="scroll-container">
     <div class="widget">
         <?php
-        echo "ID volo selezionato: " . $_POST["flight_id"] . "<br>";
+        echo 'ID volo selezionato: ' . $_POST['flight_id'] . '<br>';
         $row = mysqli_fetch_assoc($result);
-        if ($row && $row["Posti_disponibili"] > 0) {
-            echo "Posti disponibili: " . $row["Posti_disponibili"] . "<br>";
+        if ($row && $row['Posti_disponibili'] > 0) {
+            echo 'Posti disponibili: ' . $row['Posti_disponibili'] . '<br>';
             if (mysqli_execute($stmt2)) {
-                echo "Vecchia prenotazione eliminata con successo!" . "<br>";
+                echo 'Vecchia prenotazione eliminata con successo!' . '<br>';
                 if ($result2) {
                     $row2 = mysqli_fetch_assoc($result2);
                     if ($row2) {
-                        $nuovoID = $row2["NuovoID_Prenotazione"];
-                        echo "Il nuovo ID prenotazione è: " . $nuovoID . "<br>";
+                        $nuovoID = $row2['NuovoID_Prenotazione'];
+                        echo 'Il nuovo ID prenotazione è: ' . $nuovoID . '<br>';
                         mysqli_execute($stmt3);
-                        echo "Nuova prenotazione creata con successo!";
+                        echo 'Nuova prenotazione creata con successo!';
                     } else {
-                        echo "Nessun risultato trovato.";
+                        echo 'Nessun risultato trovato.';
                     }
                 } else {
-                    echo "Errore nella query: " . mysqli_error($mysqli);
+                    echo 'Errore nella query: ' . mysqli_error($mysqli);
                 }
             } else {
-                echo "Errore nella query: " . mysqli_error($mysqli);
+                echo 'Errore nella query: ' . mysqli_error($mysqli);
             }
         } else {
             echo "Nessun posto disponibile sull'aereo!";
@@ -77,5 +80,5 @@ $result2 = mysqli_query($con, $sql3);
     </div>
 </div>
 
-<?php include "./footer.php";
+<?php include TEMPLATES_PATH . 'footer.php';
 ?>

@@ -7,9 +7,9 @@ if (!$_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<?php include './database.php'; ?>
-<?php include './header.php'; ?>
-<?php include './menu.php'; ?>
+<?php include TEMPLATES_PATH . 'database.php'; ?>
+<?php include TEMPLATES_PATH . 'header.php'; ?>
+<?php include TEMPLATES_PATH . 'menu.php'; ?>
 
 <?php
 $sql = "DELETE FROM Prenotazioni
@@ -37,4 +37,4 @@ if (isset($_POST['delete-button'])) {
     </div>
 </div>
 
-<?php include './footer.php'; ?>
+<?php include TEMPLATES_PATH . 'footer.php'; ?>

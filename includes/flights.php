@@ -40,8 +40,7 @@ JOIN
 Aeroporti A1 ON V.Aeroporto_partenza = A1.ID_AEROPORTO
 JOIN
 Aeroporti A2 ON V.Aeroporto_arrivo = A2.ID_AEROPORTO
-WHERE P.ID_PASSEGGERO = ?
-AND V.Data_partenza > CURRENT_DATE()";
+WHERE P.ID_PASSEGGERO = ?";
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, 's', $_SESSION['user-id']);
 mysqli_stmt_execute($stmt);
@@ -52,7 +51,9 @@ $result = mysqli_stmt_get_result($stmt);
     <div class="widget" id="user-badge">
         <?php if ($row = mysqli_num_rows($result) > 0) {
             echo '<div class="user-badge">';
-            echo '<img id="userIcon" src="./img/icons/user.jpg" alt="">';
+            echo '<img id="userIcon" src="' .
+                BASE_URL .
+                'img/icons/user.jpg" alt="">';
             echo '<span>Ciao, <b>' . $_SESSION['first-name'] . '</b>!</span>';
             echo '</div>';
         } ?>
@@ -102,7 +103,7 @@ $result = mysqli_stmt_get_result($stmt);
                     ); ?></span>
                 </div>
 
-                <img src="./img/airplane.svg" alt="" />
+                <img src="<?= BASE_URL ?>img/airplane.svg" alt="" />
 
                 <div class="flight-card-item flight-card-arrival">
                     <span id="time"><?php echo htmlspecialchars(

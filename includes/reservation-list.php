@@ -3,7 +3,6 @@ require_once 'config.php';
 include TEMPLATES_PATH . 'database.php';
 
 $reservationid = mysqli_real_escape_string($conn, $_POST['reservationID']);
-
 $sql = "SELECT
 V.Data_partenza,
 DATE_FORMAT(V.Orario_partenza, '%H:%i') AS Orario_partenza,
@@ -54,7 +53,7 @@ $result = mysqli_query($conn, $sql);
                             $row['Città_partenza'],
                         ); ?></span>
                 </div>
-                <img src="./img/airplane.svg" alt="" />
+                <img src="<?= BASE_URL ?>img/airplane.svg" alt="" />
                 <div class="flight-card-item flight-card-arrival">
                     <span id="time"><?php echo htmlspecialchars(
                         $row['Orario_arrivo'],

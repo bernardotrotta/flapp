@@ -1,0 +1,305 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("./variables.css");
+@import url("./widgets.css");
+@import url("./table.css");
+@import url("./userbadge.css");
+@import url("./form.css");
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-primary);
+  font-family: "Inter", sans-serif;
+  height: 100%;
+}
+
+.cloud {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: -10;
+  /* display: none; */
+}
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  background-color: #fff;
+  border-radius: var(--border-radius-lg);
+  width: 1280px;
+  height: 720px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.container > div {
+  padding: 48px;
+  display: flex;
+  gap: var(--spacing-xxl);
+  flex-direction: column;
+  flex: 3;
+}
+
+.menu {
+  background-color: var(--menu-bg) !important;
+  flex-direction: column;
+  gap: var(--spacing-xxl) !important;
+  flex: 1 !important;
+}
+
+#user-page {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 48px;
+}
+
+#bookings-page {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 48px;
+}
+
+#bookings-page-banner {
+  grid-area: bookings-page-banner;
+}
+
+#bookings-page-form {
+  grid-area: bookings-page-form;
+}
+
+#home-page {
+  display: grid !important;
+  grid-template-areas:
+    "w1 w1 w1 w1"
+    "w3 w3 w4 w4"
+    "w5 w5 w5 w5";
+}
+
+.scroll-container {
+  overflow-y: scroll;
+  /* scrollbar-gutter: stable both-edges; */
+  /* scrollbar-color: var(--scrollbar-color) rgba(255, 255, 255, 0); */
+}
+
+#user-area-form form > div {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+#bookings-page form {
+  display: grid;
+  grid-template-areas:
+    "bookingId"
+    "submit";
+  gap: 24px;
+}
+
+.widget label {
+  font-size: 12px;
+  color: var(--color-gray-dark);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+#item2 {
+  grid-area: b;
+}
+#item3 {
+  grid-area: c;
+}
+
+#first-name {
+  grid-area: firstName;
+}
+#last-name {
+  grid-area: lastName;
+}
+
+#user-id {
+  grid-area: customerId;
+}
+.field4 {
+  grid-area: bookingId;
+}
+
+#widget5 {
+  grid-area: w5;
+}
+
+input {
+  width: 100%;
+  background-color: var(--menu-bg);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+input[type="submit"] {
+  grid-area: submit;
+  color: white;
+  background-color: var(--color-primary);
+}
+
+input[type="submit"]:hover {
+  background-color: var(--color-primary-hover);
+}
+
+input[type="submit"]:active {
+  background-color: var(--color-primary-active);
+}
+
+nav {
+  height: 100%;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+nav li {
+  display: flex;
+  text-align: start;
+  list-style: none;
+  background-color: rgb(255, 255, 255);
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: var(--border-radius-md);
+  align-items: center;
+}
+
+ul li a {
+  display: flex;
+  color: rgb(18, 18, 18);
+  border-radius: 8px;
+  gap: 8px;
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+ul li :hover {
+  background-color: rgb(210, 210, 210);
+  color: rgb(29, 29, 29);
+  border-radius: var(--border-radius-md);
+}
+
+ul li :active {
+  background-color: rgb(85, 85, 85);
+}
+
+nav img {
+  margin: 0;
+}
+
+.review {
+  font-size: small;
+}
+
+.review a {
+  color: var(--color-primary);
+}
+
+ol {
+  list-style-position: inside;
+  line-height: 2em;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.cover {
+  background: url("../img/airplane_3.jpg");
+  background-size: cover;
+  background-position: center;
+  flex: 2 !important;
+}
+
+.rating {
+  direction: rtl;
+  display: inline !important;
+}
+
+.rating .rating-radio {
+  display: none;
+}
+
+.rating label {
+  cursor: pointer;
+  color: var(--color-gray);
+  display: inline !important;
+}
+
+.rating label i {
+  font-size: 2em;
+  transition: 0.1s ease-in;
+}
+
+.rating label:hover i,
+.rating label:hover ~ label i {
+  cursor: pointer;
+  color: gold;
+}
+
+.rating label:active i,
+.rating label:active ~ label i {
+  cursor: pointer;
+  color: gold;
+}
+
+.rating input[type="radio"]:checked + label i,
+input[type="radio"]:checked ~ label i {
+  color: gold;
+}
+
+/* Ennesima prova */
+form div {
+  font-size: var(--font-size-xs);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.user-avatar {
+  clip-path: circle(60px);
+  width: 60px;
+}
+
+hr {
+  border-top: 0.5px;
+  color: var(--color-gray);
+  margin: 16px 0;
+}

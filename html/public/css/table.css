@@ -2,6 +2,7 @@ table {
   overflow: scroll;
   text-align: start;
   text-wrap: nowrap;
+  font-size: 12px;
 }
 
 th {

@@ -10,7 +10,8 @@ JOIN Personale P ON S.ID_dipendente = P.ID_DIPENDENTE
 WHERE P.ID_DIPENDENTE = ? 
   AND MONTH(V.Data_partenza) = MONTH(CURDATE())
   AND YEAR(V.Data_partenza) = YEAR(CURDATE())
-  AND V.Data_partenza <= CURRENT_DATE;";
+  AND V.Data_partenza <= CURRENT_DATE";
+
 $stmt = mysqli_prepare($conn, $query);
 if ($stmt) {
     mysqli_stmt_bind_param($stmt, 's', $_SESSION['employee-id']);

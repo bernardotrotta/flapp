@@ -182,7 +182,6 @@ nav ul {
 }
 
 nav li {
-  display: flex;
   text-align: start;
   list-style: none;
   background-color: rgb(255, 255, 255);
@@ -192,7 +191,7 @@ nav li {
   align-items: center;
 }
 
-ul li a {
+nav ul li a {
   display: flex;
   color: rgb(18, 18, 18);
   border-radius: 8px;
@@ -200,13 +199,13 @@ ul li a {
   padding: var(--spacing-sm) var(--spacing-md);
 }
 
-ul li :hover {
+nav ul li :hover {
   background-color: rgb(210, 210, 210);
   color: rgb(29, 29, 29);
   border-radius: var(--border-radius-md);
 }
 
-ul li :active {
+nav ul li :active {
   background-color: rgb(85, 85, 85);
 }
 
@@ -302,4 +301,10 @@ hr {
   border-top: 0.5px;
   color: var(--color-gray);
   margin: 16px 0;
+}
+
+#aircrew{
+  background-image: url(../img/aircrew-3.jpg) !important;
+  background-size: cover;
+  flex: 6 !important;
 }

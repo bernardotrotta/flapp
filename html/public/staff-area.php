@@ -6,17 +6,10 @@ include TEMPLATES_PATH . 'employee-menu.php';
 ?>
 
 <div id="staff-area">
-    <div class="widget">
-        <span>
-            Ciao!
-            <?php
-            echo htmlspecialchars($_SESSION['first-name']) . ' ';
-            echo htmlspecialchars($_SESSION['last-name']);
-            ?>
-            <br>
-            Ore lavorate: <?php echo htmlspecialchars($hours_worked); ?>
-        </span>
-    </div>
+    <?php
+    include TEMPLATES_PATH . 'user-badge.php';
+    include TEMPLATES_PATH . 'staff-statistics.php';
+    ?>
     <div class="widget">
     </div>
 </div>

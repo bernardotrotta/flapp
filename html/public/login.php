@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 include INCLUDES_PATH . 'login.php';
 include TEMPLATES_PATH . 'header.php';
-include TEMPLATES_PATH . 'menu.php';
 ?>
 
 <div id="login-page">
@@ -20,6 +19,10 @@ include TEMPLATES_PATH . 'menu.php';
             <input type="submit" value="Invia" name="login">
         </form>
     </div>
+</div>
+
+<div class="cover" id="aircrew">
+    <!-- ... -->
 </div>
 
 <?php include TEMPLATES_PATH . 'footer.php'; ?>

@@ -17,6 +17,7 @@
                     <input type="text" name="content" id="content" required />
                 </div>
             </div>
+            <h4>Dai un voto alla tua esperienza!</h4>
             <div class="rating">
                 <input type="radio" name="rating" id="star-5" class="rating-radio" value="5" />
                 <label for="star-5"><i class="fa-solid fa-star"></i></label>
